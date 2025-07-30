@@ -36,18 +36,22 @@
     </script>
     <!-- TikTok Pixel Code End -->
     <script>
-      function sendTikTokEvents() {
-        ttq.track('Lead');
-        ttq.track('Purchase');
-        ttq.track('Schedule');
-        ttq.track('CompleteRegistration');
-        alert("События TikTok отправлены! Проверь Pixel Helper.");
-      }
+      // Добавляем обработчик после загрузки всей страницы
+      window.addEventListener('DOMContentLoaded', function () {
+        document.body.addEventListener('click', function () {
+          // Для отладки - чтобы не дублировать события, выводим сообщение
+          alert("Отправлены события TikTok: Lead, Purchase, Schedule, CompleteRegistration");
+          ttq.track('Lead');
+          ttq.track('Purchase');
+          ttq.track('Schedule');
+          ttq.track('CompleteRegistration');
+        }, { once: true }); // Сработает только один раз на клик
+      });
     </script>
   </head>
-  <body onclick="sendTikTokEvents()">
-    <h2>Нажми на страницу для отправки событий TikTok Pixel</h2>
-    <p>После клика по странице появятся события Lead, Purchase, Schedule, CompleteRegistration.<br>
+  <body>
+    <h2>Кликни по странице для отправки событий TikTok Pixel</h2>
+    <p>После клика появятся события Lead, Purchase, Schedule, CompleteRegistration.<br>
     Проверь TikTok Pixel Helper — ты увидишь все события!</p>
   </body>
 </html>
