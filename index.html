@@ -35,23 +35,55 @@
     }(window, document, 'ttq');
     </script>
     <!-- TikTok Pixel Code End -->
-    <script>
-      // Добавляем обработчик после загрузки всей страницы
-      window.addEventListener('DOMContentLoaded', function () {
-        document.body.addEventListener('click', function () {
-          // Для отладки - чтобы не дублировать события, выводим сообщение
-          alert("Отправлены события TikTok: Lead, Purchase, Schedule, CompleteRegistration");
-          ttq.track('Lead');
-          ttq.track('Purchase');
-          ttq.track('Schedule');
-          ttq.track('CompleteRegistration');
-        }, { once: true }); // Сработает только один раз на клик
-      });
-    </script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        background: #fafaff;
+      }
+      .btn {
+        display: block;
+        margin: 24px 0;
+        padding: 16px 32px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        background: #161823;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .btn:hover {
+        background: #444459;
+      }
+    </style>
   </head>
   <body>
-    <h2>Кликни по странице для отправки событий TikTok Pixel</h2>
-    <p>После клика появятся события Lead, Purchase, Schedule, CompleteRegistration.<br>
-    Проверь TikTok Pixel Helper — ты увидишь все события!</p>
+    <h2>Тест TikTok Pixel (реальные действия)</h2>
+    <p>Нажимай кнопки последовательно с небольшими паузами (3–5 секунд между кликами):</p>
+    <button class="btn" onclick="leadEvent()">Оформить заявку (Lead)</button>
+    <button class="btn" onclick="purchaseEvent()">Купить (Purchase)</button>
+    <button class="btn" onclick="scheduleEvent()">Записаться на встречу (Schedule)</button>
+    <button class="btn" onclick="completeRegEvent()">Завершить регистрацию (CompleteRegistration)</button>
+    <p>Проверь события в TikTok Pixel Helper и в Test Events!</p>
+
+    <script>
+      function leadEvent() {
+        ttq.track('Lead');
+        alert("Событие Lead отправлено");
+      }
+      function purchaseEvent() {
+        ttq.track('Purchase');
+        alert("Событие Purchase отправлено");
+      }
+      function scheduleEvent() {
+        ttq.track('Schedule');
+        alert("Событие Schedule отправлено");
+      }
+      function completeRegEvent() {
+        ttq.track('CompleteRegistration');
+        alert("Событие CompleteRegistration отправлено");
+      }
+    </script>
   </body>
 </html>
