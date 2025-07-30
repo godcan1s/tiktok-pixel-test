@@ -32,18 +32,22 @@
 
       ttq.load('D24T133C77U4KHSONHO0');
       ttq.page(); // PageView
-
-      // Генерируем основные события:
-      ttq.track('Lead');                 // Лид/заявка
-      ttq.track('Schedule');              // Запись на встречу/приём
-      ttq.track('CompleteRegistration');  // Завершена регистрация
-      ttq.track('Purchase');              // Покупка/оплата
-
     }(window, document, 'ttq');
     </script>
     <!-- TikTok Pixel Code End -->
+    <script>
+      function sendTikTokEvents() {
+        ttq.track('Lead');
+        ttq.track('Purchase');
+        ttq.track('Schedule');
+        ttq.track('CompleteRegistration');
+        alert("События TikTok отправлены! Проверь Pixel Helper.");
+      }
+    </script>
   </head>
-  <body>
-    Hello, TikTok!
+  <body onclick="sendTikTokEvents()">
+    <h2>Нажми на страницу для отправки событий TikTok Pixel</h2>
+    <p>После клика по странице появятся события Lead, Purchase, Schedule, CompleteRegistration.<br>
+    Проверь TikTok Pixel Helper — ты увидишь все события!</p>
   </body>
 </html>
