@@ -1,89 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
     <!-- TikTok Pixel Code Start -->
     <script>
     !function (w, d, t) {
-      w.TiktokAnalyticsObject = t;
-      var ttq = w[t] = w[t] || [];
-      ttq.methods = [
-        "page", "track", "identify", "instances", "debug", "on", "off", "once",
-        "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent",
-        "revokeConsent", "grantConsent"
-      ];
-      ttq.setAndDefer = function (t, e) {
-        t[e] = function () {
-          t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-        }
-      };
-      for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
-      ttq.instance = function (t) {
-        for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
-        return e
-      };
-      ttq.load = function (e, n) {
-        var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner;
-        ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {};
-        n = document.createElement("script");
-        n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t;
-        e = document.getElementsByTagName("script")[0];
-        e.parentNode.insertBefore(n, e)
-      };
-
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
       ttq.load('D269Q73C77UCI3DBP9I0');
-      ttq.page(); // PageView
+      ttq.page();
     }(window, document, 'ttq');
     </script>
     <!-- TikTok Pixel Code End -->
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 40px;
-        background: #fafaff;
-      }
-      .btn {
-        display: block;
-        margin: 24px 0;
-        padding: 16px 32px;
-        font-size: 18px;
-        border: none;
-        border-radius: 8px;
-        background: #161823;
-        color: #fff;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .btn:hover {
-        background: #444459;
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Тест TikTok Pixel (реальные события через кнопки)</h2>
-    <p>Нажимай кнопки по очереди с паузами (3–5 секунд между кликами):</p>
-    <button class="btn" onclick="leadEvent()">Оформить заявку (Lead)</button>
-    <button class="btn" onclick="purchaseEvent()">Купить (Purchase)</button>
-    <button class="btn" onclick="scheduleEvent()">Записаться на встречу (Schedule)</button>
-    <button class="btn" onclick="completeRegEvent()">Завершить регистрацию (CompleteRegistration)</button>
-    <p>Проверь события в TikTok Pixel Helper и в Test Events TikTok.</p>
-
+</head>
+<body class="flex flex-col items-center justify-center p-4">
+    <main class="main-container text-center p-8 md:p-12 lg:p-16 max-w-3xl w-full mt-12">
+        <img class="avatar" src="https://randomuser.me/api/portraits/men/12.jpg" alt="Литвин Аватар" />
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-white">
+            Михаил Литвин — Эксклюзивная страница
+        </h1>
+        <p class="text-md sm:text-lg lg:text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
+            Открой для себя новые возможности! Только сегодня — интерактивная платформа Михаила. Никаких скучных акций и навязчивых условий. Просто жми и участвуй — для самых быстрых!
+        </p>
+        <button id="cta-button" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-transform hover:scale-105 duration-300 text-lg sm:text-xl uppercase">
+            ПЕРЕЙТИ
+        </button>
+        <div class="mt-8 text-xs text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            <p>Доступна для всех пользователей. Интерактив только для аудитории 18+. Страница создана при поддержке LitEnergy. Не является азартной игрой или лотереей.</p>
+            <p class="mt-2">© LitEnergy 2025. Все права защищены.</p>
+        </div>
+    </main>
     <script>
-      function leadEvent() {
-        ttq.track('Lead');
-        alert("Событие Lead отправлено");
-      }
-      function purchaseEvent() {
-        ttq.track('Purchase');
-        alert("Событие Purchase отправлено");
-      }
-      function scheduleEvent() {
-        ttq.track('Schedule');
-        alert("Событие Schedule отправлено");
-      }
-      function completeRegEvent() {
-        ttq.track('CompleteRegistration');
-        alert("Событие CompleteRegistration отправлено");
-      }
+        document.getElementById('cta-button').onclick = function() {
+            window.location.href = 'https://creativecallproject.site/public/7722103963237521';
+        }
     </script>
-  </body>
+</body>
 </html>
