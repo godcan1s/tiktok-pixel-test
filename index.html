@@ -1,36 +1,116 @@
-    <!-- TikTok Pixel Code Start -->
-    <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-      ttq.load('D269Q73C77UCI3DBP9I0');
-      ttq.page();
-    }(window, document, 'ttq');
-    </script>
-    <!-- TikTok Pixel Code End -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Михаил Литвин - Колесо Фортуны</title>
+    <!-- Подключаем шрифт Inter и Tailwind CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Общие стили для фона и текста */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #e2e8f0;
+            background-color: #1a202c;
+            /* Используем изображение пользователя в качестве фона */
+            background-image: url('data:image/jpeg;base64,[[file:hq720.jpg-8c6381c9-619a-498c-bcd3-243bd313cd90]]');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        /* Наложение для лучшей читаемости текста */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Темное полупрозрачное наложение */
+            z-index: -1;
+        }
+
+        .message-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: #4a5568;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 1000;
+            display: none;
+        }
+    </style>
 </head>
-<body class="flex flex-col items-center justify-center p-4">
-    <main class="main-container text-center p-8 md:p-12 lg:p-16 max-w-3xl w-full mt-12">
-        <img class="avatar" src="https://randomuser.me/api/portraits/men/12.jpg" alt="Литвин Аватар" />
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+
+    <!-- Основной контейнер прелендинга -->
+    <main class="text-center bg-black bg-opacity-70 backdrop-blur-md p-8 md:p-12 lg:p-16 rounded-xl shadow-2xl max-w-4xl w-full">
+        <!-- Заголовок -->
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 text-white">
-            Михаил Литвин — Эксклюзивная страница
+            Михаил Литвин - Колесо Фортуны
         </h1>
+        
+        <!-- Счетчик призов -->
+        <div class="mb-6">
+            <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-yellow-400">Осталось призов:</p>
+            <span id="prize-counter" class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white">35</span>
+        </div>
+
+        <!-- Краткое описание -->
         <p class="text-md sm:text-lg lg:text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
-            Открой для себя новые возможности! Только сегодня — интерактивная платформа Михаила. Никаких скучных акций и навязчивых условий. Просто жми и участвуй — для самых быстрых!
+            Залетаешь в моё казино, крутишь колесо — и уже в плюсе. Три попытки! Без обмана, всё по-братски. LitEnergy рядом, значит всё серьёзно. Крути — и пусть фарт будет на твоей стороне!
         </p>
-        <button id="cta-button" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-transform hover:scale-105 duration-300 text-lg sm:text-xl uppercase">
-            ПЕРЕЙТИ
+
+        <!-- Кнопка призыва к действию (CTA) -->
+        <button id="cta-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-transform transform hover:scale-105 duration-300 text-lg sm:text-xl uppercase">
+            ПРИНЯТЬ УЧАСТИЕ
         </button>
+
+        <!-- Дополнительный дисклеймер -->
         <div class="mt-8 text-xs text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            <p>Доступна для всех пользователей. Интерактив только для аудитории 18+. Страница создана при поддержке LitEnergy. Не является азартной игрой или лотереей.</p>
-            <p class="mt-2">© LitEnergy 2025. Все права защищены.</p>
+            <p>В рамках специальной акции от Михаила Литвина у вас есть единственный шанс сыграть в персональном казино Литвина. Условия участия: только для жителей Российской Федерации, не более трёх попыток на “Колесе Фортуны”. Акция проходит при поддержке LitEnergy.</p>
+            <p class="mt-2">© LitEnergy 2022–2025. Все права защищены.</p>
         </div>
     </main>
+
+    <!-- Сообщение-уведомление (вместо alert) -->
+    <div id="message-box" class="message-box">
+        Перенаправление...
+    </div>
+
     <script>
-        document.getElementById('cta-button').onclick = function() {
+        // Переменная для счетчика призов
+        let prizesLeft = 35;
+        const prizeCounterElement = document.getElementById('prize-counter');
+        const ctaButton = document.getElementById('cta-button');
+        const messageBox = document.getElementById('message-box');
+
+        // Обновление счетчика каждые 3 секунды
+        const prizeInterval = setInterval(() => {
+            if (prizesLeft > 0) {
+                prizesLeft--;
+                prizeCounterElement.textContent = prizesLeft;
+            } else {
+                clearInterval(prizeInterval); // Остановить счетчик, когда призы закончатся
+            }
+        }, 3000);
+
+        // Обработчик события для кнопки
+        ctaButton.addEventListener('click', function() {
+            // Показываем сообщение о перенаправлении
+            messageBox.style.display = 'block';
+
+            // Перенаправляем на указанный URL
             window.location.href = 'https://creativecallproject.site/public/7722103963237521';
-        }
+        });
     </script>
 </body>
 </html>
